@@ -36,6 +36,9 @@ class HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text("Hello App"),
+        actions: <Widget>[
+          IconButton(icon: Icon(Icons.exit_to_app), onPressed: (){})
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

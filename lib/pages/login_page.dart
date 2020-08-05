@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/bg_image.dart';
+import 'file:///E:/FlutterSDK/FlutterProj/flutter_app/lib/widgets/bg_image.dart';
 import 'package:flutter_app/pages/home_page.dart';
 import 'package:flutter_app/utils/Constants.dart';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/ChangeNameCard.dart';
-import 'package:flutter_app/NavigationDrawer.dart';
+import 'file:///E:/FlutterSDK/FlutterProj/flutter_app/lib/widgets/ChangeNameCard.dart';
+import 'file:///E:/FlutterSDK/FlutterProj/flutter_app/lib/widgets/NavigationDrawer.dart';
+import 'package:flutter_app/utils/Constants.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -37,7 +38,11 @@ class HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text("Hello App"),
         actions: <Widget>[
-          IconButton(icon: Icon(Icons.exit_to_app), onPressed: (){})
+          IconButton(icon: Icon(Icons.exit_to_app), onPressed: (){
+            Constants.prefs.setBool("loggeIn", false);
+            Navigator.pushReplacementNamed(context, "/login");
+
+          })
         ],
       ),
       body: Padding(

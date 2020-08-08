@@ -7,7 +7,7 @@ import 'package:flutter_app/utils/Constants.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class HomePageFB extends StatelessWidget {
+class HomePageSB extends StatelessWidget {
 /*
   @override
   void initState() {
@@ -20,6 +20,13 @@ class HomePageFB extends StatelessWidget {
     var responseData = await http.get(url);
     var data = jsonDecode(responseData.body);
     print(data);
+    return data;
+  }
+
+  Stream<List<String>> getStreamData(){
+    var data = Stream<List<String>>.fromIterable([
+      List<String>.generate(20, (index) => "Item $index")
+    ]);
     return data;
   }
 
@@ -38,8 +45,8 @@ class HomePageFB extends StatelessWidget {
               })
         ],
       ),
-      body: FutureBuilder(
-          future: getData(),
+      body: StreamBuilder(
+          stream: getStreamData(),
           // ignore: missing_return
           builder: (context, snapshot) {
             switch (snapshot.connectionState) {
@@ -63,13 +70,13 @@ class HomePageFB extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: ListTile(
-                      title: Text(snapshot.data[index]["title"]),
-                      subtitle: Text("ID: ${snapshot.data[index]["id"]}"),
+                      title: Text(snapshot.data[index]),
+                    /* subtitle: Text("ID: ${snapshot.data[index]["id"]}"),
                       leading: Image.network(
                         snapshot.data[index]["url"],
                         width: 60.0,
                         height: 60.0,
-                      ),
+                      ),*/
                     ),
                   );
                 });

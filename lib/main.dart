@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_app/pages/home_page.dart';
 import 'package:flutter_app/pages/home_page_with_fb.dart';
+import 'package:flutter_app/pages/home_page_with_sb.dart';
 import 'package:flutter_app/pages/login_page.dart';
 import 'package:flutter_app/utils/Constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,11 +18,11 @@ Future main() async {
     debugShowCheckedModeBanner: false,
     title: "Hello App",
     home:
-        Constants.prefs.getBool("loggedIn") == true ? HomePageFB() : LoginPage(),
+        Constants.prefs.getBool("loggedIn") == true ? HomePageSB() : LoginPage(),
     theme: ThemeData(primarySwatch: Colors.purple),
     routes: {
       "/login": (context) => LoginPage(),
-      "/home": (context) => HomePage()
+      "/home": (context) => HomePageSB()
     },
   ));
 }
